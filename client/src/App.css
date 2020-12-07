@@ -1,9 +1,17 @@
+
+@import '~antd/dist/antd.css';
+
 body {
   background-color: #ededed;
 }
 
 .App {
-  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 40px;
+  width: 70%;
 }
 
 .App-logo {

@@ -2,6 +2,7 @@ import './App.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import Title from './components/layout/Title'
 import Todos from './components/lists/Todos'
+import AddTodo from './components/forms/AddTodo'
 
 
 const client = new ApolloClient({
@@ -14,6 +15,7 @@ function App() {
     <ApolloProvider client={client}>
       <div className="App">
         <Title />
+        <AddTodo />
         <Todos />
       </div>
     </ApolloProvider>
