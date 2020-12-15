@@ -4,9 +4,24 @@ import { Form, Input, Button } from 'antd'
 import { v4 as uuidv4 } from 'uuid'
 import {ADD_TODO, GET_TODOS} from '../../graphql/queries'
 
-
+const getStyle = () => ({
+  form: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: 20
+  },
+  formText: {
+    height: 50
+  },
+  formBtn: {
+    height: 50,
+    marginLeft: 10
+  }
+})
 
 const AddTodo = () => {
+    const styles = getStyle()
     const [id] = useState(uuidv4())
     const [addTodo] = useMutation(ADD_TODO)
   
@@ -48,31 +63,36 @@ const AddTodo = () => {
     }
   
     return (
+
       <Form
         form={form}
         name='add-todo-form'
         layout='inline'
         onFinish={onFinish}
         size='large'
-        style={{ marginBottom: '40px' }}
+        style={styles.form}
       >
         <Form.Item
           name='item'
           rules={[{ required: true, message: 'Please input your task!' }]}
         >
-          <Input placeholder='input your task' />
+          <Input style={styles.formText} placeholder='input your task' />
         </Form.Item>
-        <Form.Item shouldUpdate={true}>
+        <Form.Item 
+          shouldUpdate={true}
+        >
           {() => (
             <Button
               type='primary'
               htmlType='submit'
+              style={styles.formBtn}
             >
               Add Todo
             </Button>
           )}
         </Form.Item>
       </Form>
+
     )
   }
   

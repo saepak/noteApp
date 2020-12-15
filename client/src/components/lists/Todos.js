@@ -9,7 +9,11 @@ import Todo from '../listitems/Todo'
 const getStyles = () => ({
   list: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    width: '100%'
+  },
+  listItem: {
+    width: '100%'
   }
 })
 
@@ -25,7 +29,7 @@ const Todos = () => {
   return (
     <List grid={{ gutter: 20, column: 1 }} style={styles.list}>
       {data.todos.map(({ id, item }) => (
-        <List.Item key={id}>
+        <List.Item key={id} style={styles.listItem}>
           <Todo key={id} id={id} item={item} />
         </List.Item>
       ))}

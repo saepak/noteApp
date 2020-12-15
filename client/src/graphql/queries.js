@@ -20,7 +20,6 @@ export const UPDATE_TODO = gql`
     mutation UpdateTodo(
         $id: String!
         $item: String!
-        $completed : Boolean!
     ){
         updateTodo(id:$id, item: $item){
             id

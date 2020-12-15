@@ -8,7 +8,7 @@ import UpdateTodo from '../forms/UpdateTodo'
 
 const getStyles = () => ({
     card : {
-        width: '500px'
+        width: '100%'
     }
 })
 
