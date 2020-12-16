@@ -34,14 +34,6 @@ const Todo = (props) => {
           }
     }
 
-    const checkCompleted = () => {
-        if (completed) {
-            return setCompleted(false)
-        } else {
-            return setCompleted(true)
-        }
-    }
-
     return (
         <div>
             {editMode? (
@@ -60,12 +52,6 @@ const Todo = (props) => {
                         <RemoveTodo id={id} item={item} />
                     ]}
                 >
-                    <Button 
-                        type="link"
-                        onClick={checkCompleted}
-                    >
-                        {completed ? <CheckCircleTwoTone twoToneColor="#c9c9c9" /> : <CheckCircleFilled />}
-                    </Button>
                     {item}
                 </Card>
             )}
