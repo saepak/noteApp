@@ -1,8 +1,7 @@
 import React,{ useState } from 'react'
 import RemoveTodo from '../buttons/RemoveTodo'
-import { Card } from 'antd'
-import { EditOutlined} from '@ant-design/icons'
-
+import { Card, Button } from 'antd'
+import { EditOutlined, CheckCircleFilled, CheckCircleTwoTone } from '@ant-design/icons'
 import UpdateTodo from '../forms/UpdateTodo'
 
 
@@ -15,6 +14,7 @@ const getStyles = () => ({
 const Todo = (props) => {
     const [id] = useState(props.id)
     const [item, setItem] = useState(props.item)
+    const [check, setCheck] = useState(false)
     const [editMode, setEditMode] = useState(false)
 
     const styles = getStyles()
@@ -23,8 +23,12 @@ const Todo = (props) => {
         setEditMode(!editMode)
     }
 
-    const items = () => {
-        return `${item}`
+    const checked = () => {
+        if(!check) {
+            return setCheck(true)
+        } else {
+            return setCheck(false)
+        }
     }
 
     const updateStateVariable = (variable, value) => {
@@ -55,7 +59,12 @@ const Todo = (props) => {
                         <RemoveTodo id={id} item={item} />
                     ]}
                 >
-                    {items()}
+                    <Button type="link" onClick={checked}>
+                        {check ? <CheckCircleFilled /> : <CheckCircleTwoTone />}
+  
+                    </Button>
+                    
+                    {item}
                 </Card>
             )}
         </div>
