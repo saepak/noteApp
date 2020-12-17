@@ -12,7 +12,8 @@ const getStyle = () => ({
       marginBottom: 20
     },
     formText: {
-      height: 50
+      height: 50,
+      marginBottom: 10
     },
     formBtn: {
       height: 50,
@@ -82,6 +83,10 @@ const UpdateTodo = (props) => {
                         style={styles.formBtn}
                         type='primary'
                         htmlType='submit'
+                        disabled={
+                            ( !form.isFieldTouched('item')) ||
+                              form.getFieldsError().filter(({ errors }) => errors.length).length
+                          }
                     >
                         Update Todo
                     </Button>
